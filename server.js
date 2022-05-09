@@ -1,3 +1,4 @@
+require('dotenv').config(); 
 const app = require('koa')();
 const router = require('koa-router')();
 const db = require('./db.json');
@@ -43,7 +44,7 @@ router.get('/api/', function *() {
 });
 
 router.get('/', function *() {
-  this.body = "Ready to receive requests";
+  this.body = "Ready to receive requests " + process.env.NODE_ENV;;
 });
 
 app.use(router.routes());
